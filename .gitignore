@@ -13,3 +13,4 @@ public/static
 .env.production.local
 
 src/server/config.js
+accessData.json

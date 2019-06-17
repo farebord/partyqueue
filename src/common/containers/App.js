@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 const App = () => 
-  <div>PartyQueue</div>
+  <div>PartyQueue #2</div>
 
 
 const mapStateToProps = () => ({

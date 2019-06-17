@@ -1,3 +1,4 @@
+import fs from 'fs'
 import App from '../common/containers/App';
 import { Provider } from 'react-redux';
 import React from 'react';
@@ -16,6 +17,40 @@ const assets = require(process.env.RAZZLE_ASSETS_MANIFEST)
 var access_info = {}
 var public_access_info = {}
 var device_selected;
+
+try {
+  var contents = fs.readFileSync("accessData.json", 'utf8')
+  var parsedData = JSON.parse(contents)
+  var currentDate = parseInt(new Date().getTime()/1000)
+  var fileDate = parseInt(new Date(parsedData.time)/1000)
+  var timeDiff = (currentDate - fileDate)/3600
+  if(timeDiff < 1) {
+    access_info = parsedData.access_info
+    public_access_info = parsedData.public_access_info
+    device_selected = parsedData.device_selected
+    console.log('Loaded access info from accessData.json')
+  }
+} catch(err) {
+  console.log(`Error opening accessData.json. ${err.code}`)
+}
+
+
+
+const saveInfoToFile = () => {
+  let info = JSON.stringify({
+    access_info,
+    public_access_info,
+    device_selected,
+    time: new Date()
+  })
+
+  fs.writeFile("accessData.json", info, 'utf8', err => {
+    if(err)
+      console.log(`Could not save access info to file. Error: ${err}`)
+
+    console.log('Access info saved successfully in accessData.json')
+  })
+}
 
 const buildRequestBody = (code) => qs.stringify({
 	grant_type: 'authorization_code',
@@ -117,7 +152,7 @@ server.get('/setup', (req, res) => {
     axios.post('https://accounts.spotify.com/api/token', buildRequestBody(req.query.code), authConfig())
       .then(response => response.data)
       .then(data => {
-        console.log('Fetch complete! Now you can control spotify from your browser. http://localhost:3000')
+        console.log('Fetch complete!')
         access_info = data
         console.log('Saving private access info.')
         res.redirect('https://accounts.spotify.com/es/authorize?client_id=834e47fa5c0c40769a0cae41eb630a6f&response_type=code&state=34fFs29kd09&redirect_uri=http:%2F%2Flocalhost:3000/setup')
@@ -128,7 +163,7 @@ server.get('/setup', (req, res) => {
     axios.post('https://accounts.spotify.com/api/token', buildRequestBody(req.query.code), authConfig())
     .then(response => response.data)
     .then(data => {
-      console.log('Fetch complete! Now you can control spotify from your browser. http://localhost:3000')
+      console.log('Fetch complete!')
       public_access_info = data
       console.log('Saving public access info.')
       res.redirect('/device');
@@ -157,6 +192,8 @@ server.post('/device', (req, res) => {
   if(device_selected === undefined) {
     console.log(`Selected device ID: ${req.body.device}`)
     device_selected = req.body.device;
+    saveInfoToFile()
+    console.log('Now you can control spotify from your browser. http://localhost:3000')
     res.redirect('/')
   } else {
     res.send('If you want to change the playing device, please restart PartyQueue server.')
