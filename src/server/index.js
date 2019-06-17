@@ -127,7 +127,7 @@ server.get('/playing', (req, res) => {
   .then(data => {
     res.send(data)
   })
-  .catch(err => console.err(err))
+  .catch(err => console.log(err))
 })
 
 server.get('/pause', (req, res) => {
