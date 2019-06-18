@@ -1,16 +1,21 @@
 import fs from 'fs'
-import App from '../common/containers/App';
-import { Provider } from 'react-redux';
-import React from 'react';
-import configureStore from '../common/store/configureStore';
-import express from 'express';
 import qs from 'qs';
-import { renderToString } from 'react-dom/server';
+import express from 'express';
 import serialize from 'serialize-javascript';
 import bodyParser from 'body-parser'
+
+import React from 'react';
+import { Provider } from 'react-redux';
+import { renderToString } from 'react-dom/server';
+
+import theme from '../common/theme';
+import { ThemeProvider, ServerStyleSheets } from '@material-ui/styles';
+
+import configureStore from '../common/store/configureStore';
 import axios from 'axios'
 import config from './config'
 import deviceTemplate from './templates/device_template'
+import App from '../common/containers/App';
 
 const assets = require(process.env.RAZZLE_ASSETS_MANIFEST)
 
@@ -82,16 +87,20 @@ server.use(express.static(process.env.RAZZLE_PUBLIC_DIR))
 
 server.get('/', (req, res) => {
 
+  const sheets = new ServerStyleSheets();
 
-  // Create a new Redux store instance
   const store = configureStore();
 
   // Render the component to a string
   const markup = renderToString(
-    <Provider store={store}>
-      <App />
-    </Provider>
+      sheets.collect(<ThemeProvider theme={theme}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </ThemeProvider>)
   );
+  
+  const css = sheets.toString()
 
   // Grab the initial state from our Redux store
   const finalState = store.getState();
@@ -102,14 +111,16 @@ server.get('/', (req, res) => {
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta charSet='utf-8' />
-        <title>Razzle Redux Example</title>
+        <title>PartyQueue</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css" />
         ${assets.client.css
           ? `<link rel="stylesheet" href="${assets.client.css}">`
           : ''}
           ${process.env.NODE_ENV === 'production'
             ? `<script src="${assets.client.js}" defer></script>`
             : `<script src="${assets.client.js}" defer crossorigin></script>`}
+        <style id="jss-server-side">${css}</style>
     </head>
     <body>
         <div id="root">${markup}</div>
@@ -170,7 +181,8 @@ server.get('/setup', (req, res) => {
     })
     .catch(error => console.log(error))
   } else {
-    res.send("You are setup")
+    console.log('You are already setup.')
+    res.redirect('/')
   }
 })
 

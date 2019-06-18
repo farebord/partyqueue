@@ -1,5 +1,5 @@
 import express from 'express';
-import open from 'open';
+import {open} from 'openurl';
 
 
 let app = require('./server').default;
