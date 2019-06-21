@@ -33,9 +33,11 @@ hydrate(
 if (module.hot) {
   module.hot.accept('../common/containers/App', () => {
     hydrate(
-      <Provider store={store}>
-        <App />
-      </Provider>,
+      <ThemeProvider theme={theme}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </ThemeProvider>,
       document.getElementById('root')
     );
   });
