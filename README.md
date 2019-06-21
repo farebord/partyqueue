@@ -40,5 +40,7 @@ If you want to try that on your own you can create a file there and enter this i
 ```
 export default {
     appAuth: "<here there must be a base64 encoded string containing client_id:secret_key>"
+    host: "localhost",
+    port: "3000"
 }
 ```
