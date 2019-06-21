@@ -8,6 +8,13 @@ The idea is, when you go to a party, you open this app in your phone. After this
 
 Future: Also you will have the possibility to like or dislike songs on the queue. If there is enough dislikes the song will be removed from the song queue and wont be played.
 
+## To do
+- Autocomplete search bar that shows a list of music to add to the queue (playlist).
+- Create a partyqueue playlist and use it as a queue. (Spotify API doesn't have endpoints for adding music to queue, in fact Queue are store locally on each device)
+- Create permissions based login. This will allow a superuser to control volume and shutdown PartyQueue remotely.
+- Restore accessToken automatically using refreshToken if a request to Spotify API fails.
+- Create a push notification server to let users knows if music changes, etc. (Socket can be another choice to do this)
+
 ## Requirements
 - NodeJS.
 - Spotify client open. (if you dont,it won't play no song and the queue will be static).
