@@ -63,9 +63,11 @@ const buildRequestBody = (code) => qs.stringify({
 	redirect_uri: "http://localhost:3000/setup"
 })
 
+const authData = btoa(`${config.clientKey}:${config.secretKey}`)
+
 const authConfig = () => ({
 	headers: {
-		'Authorization': `Basic ${config.appAuth}`,
+		'Authorization': `Basic ${authData}`,
 		'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
 	},
 })
