@@ -12,5 +12,4 @@ public/static
 .env.test.local
 .env.production.local
 
-src/server/config.js
 accessData.json
