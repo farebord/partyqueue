@@ -28,6 +28,9 @@ const styles = {
     },
     songArtists: {
 
+    },
+    songProgress: {
+
     }
   }
 
@@ -41,9 +44,17 @@ const renderButtonIcon = (loading, isPlaying, classes) =>{
 }
 
 const getArtists = artistList => artistList.map(artist => artist.name).join(', ')
+
+const getTimeFromMs = ms => {
+    const minutes = Math.floor(ms / 60000)
+    const seconds = ((ms % 60000) / 1000).toFixed(0)
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
+}
+
+export const getProgress = (progress, duration) => `${getTimeFromMs(progress)} / ${getTimeFromMs(duration)}`
   
 
-export const PlayerControls = ({songInfo, classes, isPlaying, pauseResumePlayer, loading}) =>
+export const PlayerControls = ({progress, songInfo, classes, isPlaying, pauseResumePlayer, loading}) =>
     <React.Fragment>
         {songInfo &&
         <Grid container>
@@ -56,11 +67,15 @@ export const PlayerControls = ({songInfo, classes, isPlaying, pauseResumePlayer,
                 <Grid item className={classes.songName}>{songInfo.name}</Grid>
                 <Grid item className={classes.songArtists}>{getArtists(songInfo.artists)}</Grid>
             </Grid>
+            <Grid item container justify="center" alignItems="center" className={classes.songProgress}>
+                {getProgress(progress, songInfo.duration_ms)}
+            </Grid>
         </Grid>
         }
     </React.Fragment>
 
 PlayerControls.propTypes = {
+    progress: PropTypes.number,
     songInfo: PropTypes.object,
     classes: PropTypes.object,
     isPlaying: PropTypes.bool,
@@ -69,6 +84,7 @@ PlayerControls.propTypes = {
 }
 
 export const mapStateToProps = ({player}) => ({
+    progress: player.progress_ms,
     songInfo: player.item,
     isPlaying: player.is_playing,
     loading: player.playbackSwitching,

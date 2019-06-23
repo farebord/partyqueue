@@ -6,3 +6,16 @@ export {
     fetchCurrentPlayback,
     switchPlaying
 } from './player'
+
+export {
+    RECEIVED_ACCESS_INFO,
+    REQUEST_ACCESS_INFO,
+    ERROR_FETCHING_ACCESS_INFO,
+    fetchAccessInfo
+} from './access'
+
+export {
+    RECEIVED_SEARCH_RESPONSE,
+    SEARCHING,
+    ERROR_SEARCHING
+} from './search'

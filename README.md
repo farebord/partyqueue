@@ -39,7 +39,8 @@ For security reasons I removed config.js from src/server. This file contains spo
 If you want to try that on your own you can create a file there and enter this information in it:
 ```
 export default {
-    appAuth: "<here there must be a base64 encoded string containing client_id:secret_key>"
+    clientKey: "",
+    secretKey: "",
     host: "localhost",
     port: "3000"
 }

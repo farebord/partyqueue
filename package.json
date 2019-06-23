@@ -6,12 +6,14 @@
     "start": "razzle start",
     "build": "razzle build",
     "test": "razzle test --env=jsdom",
+    "coverage": "razzle test --env=jsdom --coverage",
     "start:prod": "NODE_ENV=production node build/server.js"
   },
   "dependencies": {
     "@material-ui/core": "^4.0.0-rc.0",
     "@material-ui/icons": "^4.2.0",
     "axios": "^0.19.0",
+    "babel-polyfill": "^6.26.0",
     "body-parser": "^1.19.0",
     "express": "^4.15.2",
     "openurl": "^1.1.1",

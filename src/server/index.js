@@ -8,11 +8,14 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
 
+import axios from 'axios'
 import theme from '../common/theme';
 import { ThemeProvider, ServerStyleSheets } from '@material-ui/styles';
 
 import configureStore from '../common/store/configureStore';
-import axios from 'axios'
+
+import { getCurrentPlayback, pauseDevice, resumeDevice, getAccessInfo, getDevices } from './apiFunctions'
+
 import config from './config'
 import deviceTemplate from './templates/device_template'
 import App from '../common/containers/App';
@@ -63,7 +66,7 @@ const buildRequestBody = (code) => qs.stringify({
 	redirect_uri: "http://localhost:3000/setup"
 })
 
-const authData = btoa(`${config.clientKey}:${config.secretKey}`)
+const authData = Buffer.from(`${config.clientKey}:${config.secretKey}`).toString('base64')
 
 const authConfig = () => ({
 	headers: {
@@ -134,71 +137,66 @@ server.get('/', (req, res) => {
   `);
 });
 
-server.get('/playing', (req, res) => {
-  axios.get('https://api.spotify.com/v1/me/player/currently-playing', headerWithToken())
-  .then(response => response.data)
-  .then(data => {
-    res.send(data)
-  })
-  .catch(err => console.log(err))
+server.get('/playing', async (req, res) => {
+  const response = await getCurrentPlayback(headerWithToken())
+  if(response.isAxiosError) console.log(response)
+  res.send(response.data)
 })
 
-server.get('/pause', (req, res) => {
-  axios.put(`https://api.spotify.com/v1/me/player/pause?device_id=${device_selected}`, {}, headerWithToken())
-  .then(() => res.sendStatus(204))
-  .catch(response => console.log(response))
+server.get('/pause', async (req, res) => {
+  const response = await pauseDevice(device_selected, headerWithToken())
+  if(response.isAxiosError) console.log(response)
+  else res.sendStatus(204)
 })
 
-server.get('/resume', (req, res) => {
-  axios.put(`https://api.spotify.com/v1/me/player/play?device_id=${device_selected}`, {}, headerWithToken())
-  .then(() => res.sendStatus(204))
-  .catch(response => console.log(response))
+server.get('/resume', async (req, res) => {
+  const response = await resumeDevice(device_selected, headerWithToken())
+  if(response.isAxiosError) console.log(response)
+  else res.sendStatus(204)
 })
 
 server.get('/access_info', (req, res) => {
   res.send(public_access_info)
 })
 
-server.get('/setup', (req, res) => {
+server.get('/setup', async (req, res) => {
   if(Object.keys(access_info).length === 0) {
     console.log('Access code received. Fetching private access token.')
-    axios.post('https://accounts.spotify.com/api/token', buildRequestBody(req.query.code), authConfig())
-      .then(response => response.data)
-      .then(data => {
-        console.log('Fetch complete!')
-        access_info = data
-        console.log('Saving private access info.')
+    const response = await getAccessInfo(buildRequestBody(req.query.code), authConfig())
+    if(response.isAxiosError) console.log(response)
+    else {
+      console.log('Fetch complete!')
+      access_info = response.data
+      console.log('Saving private access info.')
         res.redirect('https://accounts.spotify.com/es/authorize?client_id=834e47fa5c0c40769a0cae41eb630a6f&response_type=code&state=34fFs29kd09&redirect_uri=http:%2F%2Flocalhost:3000/setup')
-      })
-      .catch(error => console.log(error))
+    }
   } else if(Object.keys(public_access_info).length === 0) {
     console.log('Access code received. Fetching public access token.')
-    axios.post('https://accounts.spotify.com/api/token', buildRequestBody(req.query.code), authConfig())
-    .then(response => response.data)
-    .then(data => {
+    const response = await getAccessInfo(buildRequestBody(req.query.code), authConfig())
+    if(response.isAxiosError) console.log(response)
+    else {
       console.log('Fetch complete!')
-      public_access_info = data
+      public_access_info = response.data
       console.log('Saving public access info.')
-      res.redirect('/device');
-    })
-    .catch(error => console.log(error))
+        res.redirect('/device')
+    }
   } else {
     console.log('You are already setup.')
     res.redirect('/')
   }
 })
 
-server.get('/device', (req, res) => {
+server.get('/device', async (req, res) => {
   if(Object.keys(access_info) !== 0 && Object.keys(public_access_info) !== 0 && device_selected === undefined){
     console.log('Fetching devices!')
-    axios.get('https://api.spotify.com/v1/me/player/devices', headerWithToken())
-    .then(response => response.data)
-    .then(data => {
+    console.log(headerWithToken())
+    const response = await getDevices(headerWithToken())
+    if(response.isAxiosError) console.log(response)
+    else {
       console.log('Devices fetched!')
       console.log('Rendering device selection template.')
-      res.send(deviceTemplate(data));
-    })
-    .catch(error => console.log(error))
+      res.send(deviceTemplate(response.data));
+    }
   }
 })
 
