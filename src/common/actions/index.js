@@ -11,7 +11,8 @@ export {
     RECEIVED_ACCESS_INFO,
     REQUEST_ACCESS_INFO,
     ERROR_FETCHING_ACCESS_INFO,
-    fetchAccessInfo
+    fetchAccessInfo,
+    fetchingAccessInfo
 } from './access'
 
 export {
