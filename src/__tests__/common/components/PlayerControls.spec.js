@@ -1,11 +1,17 @@
 import React from 'react';
 import { shallow } from 'enzyme'
-import { PlayerControls, getProgress } from 'common/components/PlayerControls'
+import { PlayerControls, getProgress, mapDispatchToProps } from 'common/components/PlayerControls'
 import Grid from '@material-ui/core/Grid';
 import PlayIcon from '@material-ui/icons/PlayArrow';
 import Fab from '@material-ui/core/Fab';
 import PauseIcon from '@material-ui/icons/Pause'
 import CircularProgress from '@material-ui/core/CircularProgress';
+
+
+import * as actions from 'common/actions'
+import { mapStateToProps } from '../../../common/components/PlayerControls';
+
+jest.mock('common/actions')
 
 
 describe('PlayerControls component should', () => {
@@ -124,5 +130,34 @@ describe('getProgress function should', () => {
         const secondsDuration = 60
         const expectedReturn = "0:05 / 1:00"
         expect(getProgress(secondsProgress * 1000, secondsDuration * 1000)).toEqual(expectedReturn)
+    })
+})
+
+describe('App mapStateToProps should', () => {
+    it('properly return object with data', () => {
+        const store = {
+            player: {
+                progress_ms: 5,
+                item: { something: true},
+                is_playing: true,
+                playbackSwitching: true
+            }
+        }
+
+        const props = mapStateToProps(store)
+        expect(props.progress).toEqual(5)
+        expect(props.songInfo).toEqual({something: true})
+        expect(props.isPlaying).toEqual(true)
+        expect(props.loading).toEqual(true)
+    })
+})
+
+describe('App mapDispatchToProps should', () => {
+    it('dispatch action for pausing resuming when pauseResumePlayer its called', () => {
+        const dispatch = jest.fn()
+        actions.switchPlaying = jest.fn(() => ({test: true}))
+        mapDispatchToProps(dispatch).pauseResumePlayer()
+        expect(dispatch).toHaveBeenCalledTimes(1)
+        expect(dispatch).toBeCalledWith({test: true})
     })
 })

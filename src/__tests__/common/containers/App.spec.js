@@ -42,7 +42,7 @@ describe('App component should', () => {
 })
 
 describe('App mapDispatchToProps should', () => {
-    it('fetch access info and current playback when getInitialData its called', () => {
+    it('dispatch actions when getInitialData its called', () => {
         const dispatch = jest.fn()
         actions.fetchAccessInfo = jest.fn(() => ({test: true}))
         actions.fetchCurrentPlayback = jest.fn(() => ({test2: true}))
