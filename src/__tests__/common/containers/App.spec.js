@@ -8,7 +8,7 @@ import configureStore from 'common/store/configureStore';
 import SearchInput from 'common/components/SearchInput'
 import PlayerControls from 'common/components/PlayerControls'
 
-import * as actions from 'common/actions'
+import { fetchAccessInfo, fetchCurrentPlayback } from 'common/actions'
 
 jest.mock('common/actions')
 
@@ -31,24 +31,30 @@ describe('App component should', () => {
         expect(playerControls).toHaveLength(1)
     })
 
-    it('call getInitialData when mounted', () => {
+    it('call getAccessInfo when mounted', () => {
         const mock = jest.fn()
         let container = document.createElement('div');
         act(() => {
-            ReactDOM.render(<Provider store={configureStore()}><App getInitialData={mock} classes={{}}/></Provider>, container)
+            ReactDOM.render(<Provider store={configureStore()}><App getAccessInfo={mock} classes={{}}/></Provider>, container)
         })
         expect(mock).toHaveBeenCalledTimes(1)  
     })
 })
 
 describe('App mapDispatchToProps should', () => {
-    it('dispatch actions when getInitialData its called', () => {
+    it('dispatch fetchAccessInfo when getAccessInfo its called', () => {
         const dispatch = jest.fn()
-        actions.fetchAccessInfo = jest.fn(() => ({test: true}))
-        actions.fetchCurrentPlayback = jest.fn(() => ({test2: true}))
-        mapDispatchToProps(dispatch).getInitialData()
-        expect(dispatch).toHaveBeenCalledTimes(2)
+        fetchAccessInfo.mockReturnValueOnce({test: true})
+        mapDispatchToProps(dispatch).getAccessInfo()
+        expect(dispatch).toHaveBeenCalledTimes(1)
         expect(dispatch).toBeCalledWith({test: true})
-        expect(dispatch).toBeCalledWith({test2: true})
+    })
+
+    it('dispatch fetchCurrentPlayback when getPlayingInfo its called', () => {
+        const dispatch = jest.fn()
+        fetchCurrentPlayback.mockReturnValueOnce({test: true})
+        mapDispatchToProps(dispatch).getPlayingInfo()
+        expect(dispatch).toHaveBeenCalledTimes(1)
+        expect(dispatch).toBeCalledWith({test: true})
     })
 })

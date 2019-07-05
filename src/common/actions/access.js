@@ -5,7 +5,7 @@ export const REQUEST_ACCESS_INFO = 'REQUEST_ACCESS_INFO';
 export const RECEIVED_ACCESS_INFO = 'RECEIVED_ACCESS_INFO';
 export const ERROR_FETCHING_ACCESS_INFO = 'ERROR_FETCHING_ACCESS_INFO';
 
-const fetchingAccessInfo = () => ({
+export const fetchingAccessInfo = () => ({
     type: REQUEST_ACCESS_INFO
 })
 

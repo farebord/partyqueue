@@ -1,4 +1,4 @@
-import React, { useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from '../common/store/configureStore';
@@ -9,7 +9,7 @@ import App from '../common/containers/App';
 const store = configureStore(window.__PRELOADED_STATE__);
 
 function Main() {
-  React.useEffect(() => {
+  useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side');
     if(jssStyles){
       jssStyles.parentNode.removeChild(jssStyles);

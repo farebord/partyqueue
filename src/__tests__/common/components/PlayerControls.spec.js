@@ -8,8 +8,8 @@ import PauseIcon from '@material-ui/icons/Pause'
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 
-import * as actions from 'common/actions'
-import { mapStateToProps } from '../../../common/components/PlayerControls';
+import { switchPlaying } from 'common/actions'
+import { mapStateToProps } from 'common/components/PlayerControls';
 
 jest.mock('common/actions')
 
@@ -155,7 +155,7 @@ describe('App mapStateToProps should', () => {
 describe('App mapDispatchToProps should', () => {
     it('dispatch action for pausing resuming when pauseResumePlayer its called', () => {
         const dispatch = jest.fn()
-        actions.switchPlaying = jest.fn(() => ({test: true}))
+        switchPlaying.mockReturnValueOnce({test: true})
         mapDispatchToProps(dispatch).pauseResumePlayer()
         expect(dispatch).toHaveBeenCalledTimes(1)
         expect(dispatch).toBeCalledWith({test: true})

@@ -6,7 +6,8 @@ import { withStyles } from '@material-ui/styles';
 import { fetchCurrentPlayback, fetchAccessInfo } from '../actions'
 import Grid from '@material-ui/core/Grid'
 import SearchInput from '../components/SearchInput'
-import PlayerControls from '../components/PlayerControls';
+import PlayerControls from '../components/PlayerControls'
+import SearchResults from '../components/SearchResults'
 
 const styles = {
   containerGrid: {
@@ -21,9 +22,13 @@ const styles = {
   }
 }
 
-export const App = ({classes, getInitialData}) => {
+export const App = ({classes, getAccessInfo, getPlayingInfo}) => {
+  const refreshCurrentPlayback = () => {
+    getPlayingInfo()
+  }
   useEffect(() => {
-    getInitialData()
+    getAccessInfo()
+    setInterval(refreshCurrentPlayback, 1000)
   }, [])
   return (
     <Grid 
@@ -35,7 +40,7 @@ export const App = ({classes, getInitialData}) => {
         <SearchInput />
       </Grid>
       <Grid item xs>
-
+        <SearchResults />
       </Grid>
       <Grid item xs className={classes.playerControl}>
         <PlayerControls />
@@ -46,8 +51,9 @@ export const App = ({classes, getInitialData}) => {
 
 App.propTypes = {
   classes: PropTypes.object,
-  getInitialData: PropTypes.func,
-  playerFetched: PropTypes.bool
+  getAccessInfo: PropTypes.func,
+  playerFetched: PropTypes.bool,
+  getPlayingInfo: PropTypes.func
 }
 
 
@@ -56,10 +62,8 @@ export const mapStateToProps = () => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  getInitialData: () => {
-    dispatch(fetchAccessInfo())
-    dispatch(fetchCurrentPlayback())
-  }
+  getAccessInfo: () => dispatch(fetchAccessInfo()),
+  getPlayingInfo: () => dispatch(fetchCurrentPlayback())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(App));

@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PlayerControls component should render correctly: PlayerControls renders with no props 1`] = `
+exports[`SearchInput component should render correctly: SearchInput renders without props 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <PlayerControls />,
+  Symbol(enzyme.__unrendered__): <SearchResults />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],
@@ -16,25 +16,21 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "function",
-    "props": Object {
-      "children": undefined,
-    },
+    "nodeType": "host",
+    "props": Object {},
     "ref": null,
     "rendered": null,
-    "type": Symbol(react.fragment),
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "function",
-      "props": Object {
-        "children": undefined,
-      },
+      "nodeType": "host",
+      "props": Object {},
       "ref": null,
       "rendered": null,
-      "type": Symbol(react.fragment),
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {

@@ -14,13 +14,13 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 const styles = {
     controls: {
       flexGrow: '0',
-      padding: '0 10px'
+      padding: '0 1rem'
     },
     songInfo: {
 
     },
     loadingProgress: {
-        margin: '10px',
+        margin: '0.5rem',
         color: 'white'
     },
     songName: {
@@ -30,7 +30,7 @@ const styles = {
 
     },
     songProgress: {
-
+        paddingRight: '1rem'
     }
   }
 
@@ -58,7 +58,7 @@ export const PlayerControls = ({progress, songInfo, classes, isPlaying, pauseRes
     <React.Fragment>
         {songInfo &&
         <Grid container>
-            <Grid item className={classes.controls} xs>
+            <Grid item container className={classes.controls} xs justify="center" alignItems="center">
                 <Fab size="small" color="secondary" aria-label="Add" onClick={pauseResumePlayer}>
                     {renderButtonIcon(loading, isPlaying, classes)}
                 </Fab>
@@ -67,7 +67,7 @@ export const PlayerControls = ({progress, songInfo, classes, isPlaying, pauseRes
                 <Grid item className={classes.songName}>{songInfo.name}</Grid>
                 <Grid item className={classes.songArtists}>{getArtists(songInfo.artists)}</Grid>
             </Grid>
-            <Grid item container justify="center" alignItems="center" className={classes.songProgress}>
+            <Grid item xs container alignItems="center" justify="flex-end" className={classes.songProgress}>
                 {getProgress(progress, songInfo.duration_ms)}
             </Grid>
         </Grid>

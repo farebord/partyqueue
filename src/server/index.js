@@ -189,7 +189,6 @@ server.get('/setup', async (req, res) => {
 server.get('/device', async (req, res) => {
   if(Object.keys(access_info) !== 0 && Object.keys(public_access_info) !== 0 && device_selected === undefined){
     console.log('Fetching devices!')
-    console.log(headerWithToken())
     const response = await getDevices(headerWithToken())
     if(response.isAxiosError) console.log(response)
     else {
