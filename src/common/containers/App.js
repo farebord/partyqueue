@@ -58,7 +58,7 @@ App.propTypes = {
 App.defaultProps = {
   getPlayingInfo: () => {},
   getAccessInfo: () => {},
-}
+};
 
 
 export const mapStateToProps = () => ({
