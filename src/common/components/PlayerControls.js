@@ -42,6 +42,11 @@ const renderButtonIcon = (loading, isPlaying, classes) => {
 
 const getArtists = artistList => artistList.map(artist => artist.name).join(', ');
 
+/**
+ * getTimeFromMs takes a number in ms and returns string in format MM:SS
+ * @param {number} ms Number representing milliseconds
+ * @return {string} Returns a string formated as MM:SS
+ */
 const getTimeFromMs = (ms) => {
   const minutes = Math.floor(ms / 60000);
   const seconds = ((ms % 60000) / 1000).toFixed(0);
@@ -49,7 +54,6 @@ const getTimeFromMs = (ms) => {
 };
 
 export const getProgress = (progress, duration) => `${getTimeFromMs(progress)} / ${getTimeFromMs(duration)}`;
-
 
 export const PlayerControls = ({
   progress, songInfo, classes, isPlaying, pauseResumePlayer, loading,
@@ -75,11 +79,17 @@ export const PlayerControls = ({
 );
 
 PlayerControls.propTypes = {
+  /* The progress of the song expressed in milliseconds */
   progress: PropTypes.number,
+  /* Spotify Item object that contains all the information of a song */
   songInfo: PropTypes.object,
+  /* Styles object */
   classes: PropTypes.object.isRequired,
+  /* Boolean that says whether the song is being played or not */
   isPlaying: PropTypes.bool,
+  /* Boolean that says if the pause/resume action is happening  */
   loading: PropTypes.bool,
+  /* Function that toggles pause to the song being played. */
   pauseResumePlayer: PropTypes.func,
 };
 

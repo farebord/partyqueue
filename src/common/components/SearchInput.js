@@ -39,6 +39,7 @@ export const SearchInput = ({ classes }) => (
 );
 
 SearchInput.propTypes = {
+  /* Styles object */
   classes: PropTypes.object.isRequired,
 };
 
