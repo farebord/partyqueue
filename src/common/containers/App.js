@@ -1,39 +1,39 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/styles';
 
-import { fetchCurrentPlayback, fetchAccessInfo } from '../actions'
-import Grid from '@material-ui/core/Grid'
-import SearchInput from '../components/SearchInput'
-import PlayerControls from '../components/PlayerControls'
-import SearchResults from '../components/SearchResults'
+import Grid from '@material-ui/core/Grid';
+import { fetchCurrentPlayback, fetchAccessInfo } from '../actions';
+import SearchInput from '../components/SearchInput';
+import PlayerControls from '../components/PlayerControls';
+import SearchResults from '../components/SearchResults';
 
 const styles = {
   containerGrid: {
     height: '100vh',
-    padding: '10px'
+    padding: '10px',
   },
   searchBar: {
-    flexGrow: '0'
+    flexGrow: '0',
   },
   playerControl: {
-    flexGrow: '0'
-  }
-}
+    flexGrow: '0',
+  },
+};
 
-export const App = ({classes, getAccessInfo, getPlayingInfo}) => {
+export const App = ({ classes, getAccessInfo, getPlayingInfo }) => {
   const refreshCurrentPlayback = () => {
-    getPlayingInfo()
-  }
+    getPlayingInfo();
+  };
   useEffect(() => {
-    getAccessInfo()
-    setInterval(refreshCurrentPlayback, 1000)
-  }, [])
+    getAccessInfo();
+    setInterval(refreshCurrentPlayback, 1000);
+  }, []);
   return (
-    <Grid 
+    <Grid
       container
-      direction="column" 
+      direction="column"
       className={classes.containerGrid}
     >
       <Grid item xs className={classes.searchBar}>
@@ -46,24 +46,28 @@ export const App = ({classes, getAccessInfo, getPlayingInfo}) => {
         <PlayerControls />
       </Grid>
     </Grid>
-  )
-}
+  );
+};
 
 App.propTypes = {
-  classes: PropTypes.object,
+  classes: PropTypes.object.isRequired,
   getAccessInfo: PropTypes.func,
-  playerFetched: PropTypes.bool,
-  getPlayingInfo: PropTypes.func
+  getPlayingInfo: PropTypes.func,
+};
+
+App.defaultProps = {
+  getPlayingInfo: () => {},
+  getAccessInfo: () => {},
 }
 
 
 export const mapStateToProps = () => ({
-  
+
 });
 
 export const mapDispatchToProps = dispatch => ({
   getAccessInfo: () => dispatch(fetchAccessInfo()),
-  getPlayingInfo: () => dispatch(fetchCurrentPlayback())
-})
+  getPlayingInfo: () => dispatch(fetchCurrentPlayback()),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(App));

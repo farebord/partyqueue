@@ -1,20 +1,21 @@
 import React, { useEffect } from 'react';
 import { hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
+import { ThemeProvider } from '@material-ui/styles';
 import configureStore from '../common/store/configureStore';
-import { ThemeProvider } from '@material-ui/styles'
 import theme from '../common/theme';
 import App from '../common/containers/App';
 
+// eslint-disable-next-line no-underscore-dangle
 const store = configureStore(window.__PRELOADED_STATE__);
 
 function Main() {
   useEffect(() => {
     const jssStyles = document.querySelector('#jss-server-side');
-    if(jssStyles){
+    if (jssStyles) {
       jssStyles.parentNode.removeChild(jssStyles);
     }
-  }, [])
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -22,12 +23,12 @@ function Main() {
         <App />
       </Provider>
     </ThemeProvider>
-  )
+  );
 }
 
 hydrate(
   <Main />,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 if (module.hot) {
@@ -38,7 +39,7 @@ if (module.hot) {
           <App />
         </Provider>
       </ThemeProvider>,
-      document.getElementById('root')
+      document.getElementById('root'),
     );
   });
 }

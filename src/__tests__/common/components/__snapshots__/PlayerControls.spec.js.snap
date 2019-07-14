@@ -3,7 +3,14 @@
 exports[`PlayerControls component should render correctly: PlayerControls renders with no props 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <PlayerControls />,
+  Symbol(enzyme.__unrendered__): <PlayerControls
+    classes={Object {}}
+    isPlaying={false}
+    loading={true}
+    pauseResumePlayer={[Function]}
+    progress={null}
+    songInfo={null}
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],
@@ -18,7 +25,7 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "function",
     "props": Object {
-      "children": undefined,
+      "children": null,
     },
     "ref": null,
     "rendered": null,
@@ -30,7 +37,7 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "function",
       "props": Object {
-        "children": undefined,
+        "children": null,
       },
       "ref": null,
       "rendered": null,

@@ -1,8 +1,5 @@
-import React from 'react'
+import React from 'react';
 
-const SearchResults = () => 
-    <div>
-
-    </div>
+const SearchResults = () => <div />;
 
 export default SearchResults;

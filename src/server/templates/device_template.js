@@ -1,10 +1,7 @@
 
-const getOptions = (devices) => {
-    return devices.map(device => `<option value="${device.id}">${device.name} (${device.type})</option>`).join('')
-}
+const getOptions = devices => devices.map(device => `<option value="${device.id}">${device.name} (${device.type})</option>`).join('');
 
-const deviceTemplate = (payload) => {
-    return `
+const deviceTemplate = payload => `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -22,7 +19,6 @@ const deviceTemplate = (payload) => {
         </form>
     </body>
     </html>
-    `
-}
+    `;
 
-export default deviceTemplate
+export default deviceTemplate;

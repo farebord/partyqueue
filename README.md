@@ -9,6 +9,7 @@ The idea is, when you go to a party, you open this app in your phone. After this
 Future: Also you will have the possibility to like or dislike songs on the queue. If there is enough dislikes the song will be removed from the song queue and wont be played.
 
 ## To do
+- Websockets implementation. (Right now it's using API requests for fetching current playback information)
 - Autocomplete search bar that shows a list of music to add to the queue (playlist).
 - Create a partyqueue playlist and use it as a queue. (Spotify API doesn't have endpoints for adding music to queue, in fact Queue are store locally on each device)
 - Create permissions based login. This will allow a superuser to control volume and shutdown PartyQueue remotely.
@@ -45,3 +46,6 @@ export default {
     port: "3000"
 }
 ```
+
+## Troubleshooting
+- If you get stuck in a white screen, please delete the accessData.json file and restart the application.
