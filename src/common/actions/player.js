@@ -6,35 +6,41 @@ export const RECEIVED_CURRENT_PLAYBACK = 'RECEIVED_CURRENT_PLAYBACK';
 export const ERROR_FETCHING_CURRENT_PLAYBACK = 'ERROR_FETCHING_CURRENT_PLAYBACK';
 export const SWITCH_PLAYING = 'SWITCH_PLAYING';
 
-const fetchingCurrentPlayback = () => ({
+export const fetchingCurrentPlayback = () => ({
   type: REQUEST_CURRENT_PLAYBACK,
 });
 
-const loadCurrentPlayback = data => ({
+export const loadCurrentPlayback = data => ({
   type: RECEIVED_CURRENT_PLAYBACK,
   payload: data,
 });
 
-const errorFetching = error => ({
+export const errorFetching = error => ({
   type: ERROR_FETCHING_CURRENT_PLAYBACK,
   payload: error,
 });
 
-const switchResumePause = () => ({
+export const switchResumePause = () => ({
   type: SWITCH_PLAYING,
 });
 
-export const fetchCurrentPlayback = () => (dispatch) => {
-  dispatch(fetchingCurrentPlayback());
-  axios.get(`http://${config.host}${config.port !== 80 && `:${config.port}`}/playing`)
-    .then(response => response.data)
-    .then(data => dispatch(loadCurrentPlayback(data)))
-    .catch(err => dispatch(errorFetching(err)));
+export const fetchCurrentPlayback = () => async (dispatch) => {
+  try {
+    dispatch(fetchingCurrentPlayback());
+    const response = await axios.get(`http://${config.host}${config.port !== 80 && `:${config.port}`}/playing`);
+    return dispatch(loadCurrentPlayback(response.data));
+  } catch (error) {
+    return dispatch(errorFetching(error));
+  }
 };
 
-export const switchPlaying = () => (dispatch, getState) => {
-  const { player } = getState();
-  dispatch(switchResumePause());
-  axios.get(`http://${config.host}${config.port !== 80 && `:${config.port}`}/${player.is_playing ? 'pause' : 'resume'}`)
-    .then(() => dispatch(fetchCurrentPlayback()));
+export const switchPlaying = () => async (dispatch, getState) => {
+  try {
+    const { player } = getState();
+    dispatch(switchResumePause());
+    await axios.get(`http://${config.host}${config.port !== 80 && `:${config.port}`}/${player.is_playing ? 'pause' : 'resume'}`);
+    return dispatch(fetchCurrentPlayback());
+  } catch (error) {
+    return dispatch(errorFetching(error));
+  }
 };

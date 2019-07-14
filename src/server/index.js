@@ -157,7 +157,7 @@ server.get('/resume', async (req, res) => {
   else res.sendStatus(204);
 });
 
-server.get('/accessInfo', (req, res) => {
+server.get('/access_info', (req, res) => {
   res.send(publicAccessInfo);
 });
 

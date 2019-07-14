@@ -9,21 +9,23 @@ export const fetchingAccessInfo = () => ({
   type: REQUEST_ACCESS_INFO,
 });
 
-const fetchedAccessInfo = data => ({
+export const fetchedAccessInfo = data => ({
   type: RECEIVED_ACCESS_INFO,
   payload: data,
 });
 
-const errorFetching = error => ({
+export const errorFetching = error => ({
   type: ERROR_FETCHING_ACCESS_INFO,
   payload: error,
 });
 
 
-export const fetchAccessInfo = () => (dispatch) => {
-  dispatch(fetchingAccessInfo());
-  axios.get(`http://${config.host}${config.port !== 80 && `:${config.port}`}/access_info`)
-    .then(response => response.data)
-    .then(data => dispatch(fetchedAccessInfo(data)))
-    .catch(err => dispatch(errorFetching(err)));
+export const fetchAccessInfo = () => async (dispatch) => {
+  try {
+    dispatch(fetchingAccessInfo());
+    const accessInfo = await axios.get(`http://${config.host}${config.port !== 80 && `:${config.port}`}/access_info`);
+    return dispatch(fetchedAccessInfo(accessInfo.data));
+  } catch (error) {
+    return dispatch(errorFetching(error));
+  }
 };
