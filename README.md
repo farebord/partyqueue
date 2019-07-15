@@ -35,6 +35,16 @@ npm start
 4) You can add a song click on the + (plus) button. It will show you an input and you will have to search the song you want to add. When you find it, click on Continue and the song will be added to the end of the queue.
 5) When the song added reach the first place on the queue it will be played automatically by the device running PartyQueue.
 
+## Tests and coverage
+You can start test watch running the next line:
+```
+npm run test
+```
+And you can see coverage by running the next:
+```
+npm run coverage
+```
+
 ## Configuration
 For security reasons I removed config.js from src/server. This file contains spotify app secret information.
 If you want to try that on your own you can create a file there and enter this information in it:
