@@ -1,9 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
-
-import { withStyles } from '@material-ui/styles';
 import Grid from '@material-ui/core/Grid';
 import Fab from '@material-ui/core/Fab';
 import PlayIcon from '@material-ui/icons/PlayArrow';
@@ -11,31 +8,10 @@ import PauseIcon from '@material-ui/icons/Pause';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { switchPlaying } from '../actions';
 
-const styles = () => ({
-  controls: {
-    flexGrow: '0',
-    padding: '0 1rem',
-  },
-  songInfo: {
+import './PlayerControls.scss';
 
-  },
-  loadingProgress: {
-    margin: '0.5rem',
-    color: 'white',
-  },
-  songName: {
-
-  },
-  songArtists: {
-
-  },
-  songProgress: {
-    paddingRight: '1rem',
-  },
-});
-
-const renderButtonIcon = (loading, isPlaying, classes) => {
-  if (loading) { return <CircularProgress size="small" className={classes.loadingProgress} />; }
+const renderButtonIcon = (loading, isPlaying) => {
+  if (loading) { return <CircularProgress size="small" className="loadingProgress" />; }
   if (isPlaying) { return <PauseIcon />; }
   return <PlayIcon />;
 };
@@ -56,24 +32,24 @@ const getTimeFromMs = (ms) => {
 export const getProgress = (progress, duration) => `${getTimeFromMs(progress)} / ${getTimeFromMs(duration)}`;
 
 export const PlayerControls = ({
-  progress, songInfo, classes, isPlaying, pauseResumePlayer, loading,
+  progress, songInfo, isPlaying, pauseResumePlayer, loading,
 }) => (
   <React.Fragment>
     {songInfo && (
-    <Grid container>
-      <Grid item container className={classes.controls} xs justify="center" alignItems="center">
-        <Fab size="small" color="secondary" aria-label="Add" onClick={pauseResumePlayer}>
-          {renderButtonIcon(loading, isPlaying, classes)}
-        </Fab>
-      </Grid>
-      <Grid container item direction="column" xs justify="center">
-        <Grid item className={classes.songName}>{songInfo.name}</Grid>
-        <Grid item className={classes.songArtists}>{getArtists(songInfo.artists)}</Grid>
-      </Grid>
-      <Grid item xs container alignItems="center" justify="flex-end" className={classes.songProgress}>
-        {getProgress(progress, songInfo.duration_ms)}
-      </Grid>
-    </Grid>
+      <div className="playerControl">
+        <div className="controls">
+          <Fab size="small" color="secondary" aria-label="Add" onClick={pauseResumePlayer}>
+            {renderButtonIcon(loading, isPlaying)}
+          </Fab>
+        </div>
+        <div className="songInfo">
+          <div className="songName">{songInfo.name}</div>
+          <div className="songArtists">{getArtists(songInfo.artists)}</div>
+        </div>
+        <div className="songProgress">
+          {getProgress(progress, songInfo.duration_ms)}
+        </div>
+      </div>
     )}
   </React.Fragment>
 );
@@ -83,8 +59,6 @@ PlayerControls.propTypes = {
   progress: PropTypes.number,
   /* Spotify Item object that contains all the information of a song */
   songInfo: PropTypes.object,
-  /* Styles object */
-  classes: PropTypes.object.isRequired,
   /* Boolean that says whether the song is being played or not */
   isPlaying: PropTypes.bool,
   /* Boolean that says if the pause/resume action is happening  */
@@ -112,4 +86,4 @@ export const mapDispatchToProps = dispatch => ({
   pauseResumePlayer: () => dispatch(switchPlaying()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(PlayerControls));
+export default connect(mapStateToProps, mapDispatchToProps)(PlayerControls);

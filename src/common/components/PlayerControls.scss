@@ -1,0 +1,32 @@
+%flex-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playerControl {
+  @extend %flex-centered;
+  flex: 1 0 auto;
+}
+
+.controls {
+  flex: 0 0 auto;
+  padding: 0 1rem;
+};
+
+.songInfo {
+  @extend %flex-centered;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.loadingProgress {
+  margin: 0.5rem;
+  color: white;
+};
+
+.songProgress {
+  @extend %flex-centered;
+  flex: 0 0 auto;
+  padding-right: 1rem;
+};

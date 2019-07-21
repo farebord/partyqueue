@@ -22,13 +22,13 @@ describe('App component should', () => {
   it('render SearchInput', () => {
     const component = shallow(<App classes={{}} />);
     const searchInput = component.find(SearchInput);
-    expect(searchInput).toHaveLength(2);
+    expect(searchInput).toHaveLength(1);
   });
 
   it('render PlayerControls', () => {
     const component = shallow(<App classes={{}} />);
     const playerControls = component.find(PlayerControls);
-    expect(playerControls).toHaveLength(2);
+    expect(playerControls).toHaveLength(1);
   });
 
   it('call getAccessInfo when mounted', () => {

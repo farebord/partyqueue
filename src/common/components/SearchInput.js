@@ -1,46 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import SearchIcon from '@material-ui/icons/Search';
 import Paper from '@material-ui/core/Paper';
 import InputBase from '@material-ui/core/InputBase';
-import { withStyles } from '@material-ui/styles';
 
-const styles = () => ({
-  root: {
-    padding: '2px 4px',
-    display: 'flex',
-    alignItems: 'center',
-  },
-  input: {
-    marginLeft: 8,
-    flex: 1,
-  },
-  inputIcon: {
-    padding: '0.5rem',
-    margin: 0,
-    display: 'flex',
-    alignItems: 'center',
-  },
-});
+import './SearchInput.scss';
 
-
-export const SearchInput = ({ classes }) => (
-  <Paper className={classes.root}>
+export const SearchInput = () => (
+  <Paper className="fieldContainer">
     <InputBase
-      className={classes.input}
+      className="searchInput"
       placeholder="Search..."
       inputProps={{ 'aria-label': 'Search...' }}
+      fullWidth
     />
-    <span className={classes.inputIcon}>
+    <span className="inputIcon">
       <SearchIcon />
     </span>
   </Paper>
 );
 
 SearchInput.propTypes = {
-  /* Styles object */
-  classes: PropTypes.object.isRequired,
+
 };
 
 export const mapStateToProps = () => ({
@@ -51,4 +32,4 @@ export const mapDispatchToProps = () => ({
 
 });
 
-export default connect(null, mapDispatchToProps)(withStyles(styles)(SearchInput));
+export default connect(null, mapDispatchToProps)(SearchInput);

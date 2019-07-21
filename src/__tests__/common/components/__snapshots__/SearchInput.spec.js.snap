@@ -22,6 +22,8 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <ForwardRef(WithStyles)
+          className="searchInput"
+          fullWidth={true}
           inputProps={
             Object {
               "aria-label": "Search...",
@@ -29,11 +31,13 @@ ShallowWrapper {
           }
           placeholder="Search..."
         />,
-        <span>
+        <span
+          className="inputIcon"
+        >
           <UNDEFINED />
         </span>,
       ],
-      "className": undefined,
+      "className": "fieldContainer",
     },
     "ref": null,
     "rendered": Array [
@@ -42,7 +46,8 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "className": undefined,
+          "className": "searchInput",
+          "fullWidth": true,
           "inputProps": Object {
             "aria-label": "Search...",
           },
@@ -373,7 +378,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": <UNDEFINED />,
-          "className": undefined,
+          "className": "inputIcon",
         },
         "ref": null,
         "rendered": Object {
@@ -694,6 +699,8 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <ForwardRef(WithStyles)
+            className="searchInput"
+            fullWidth={true}
             inputProps={
               Object {
                 "aria-label": "Search...",
@@ -701,11 +708,13 @@ ShallowWrapper {
             }
             placeholder="Search..."
           />,
-          <span>
+          <span
+            className="inputIcon"
+          >
             <UNDEFINED />
           </span>,
         ],
-        "className": undefined,
+        "className": "fieldContainer",
       },
       "ref": null,
       "rendered": Array [
@@ -714,7 +723,8 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "className": undefined,
+            "className": "searchInput",
+            "fullWidth": true,
             "inputProps": Object {
               "aria-label": "Search...",
             },
@@ -1045,7 +1055,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": <UNDEFINED />,
-            "className": undefined,
+            "className": "inputIcon",
           },
           "ref": null,
           "rendered": Object {

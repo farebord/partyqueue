@@ -1,0 +1,89 @@
+$default-padding-width: 0.625rem;
+
+%flex-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%flex-grow-only {
+  flex: 1 0 50%;
+}
+
+%background-image-centered {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+  flex-direction: row;
+  background-color: #f5f5f5
+}
+
+.searchContainer, .controlContainer, .tracksContainer {
+  @extend %flex-centered;
+  flex-direction: row;
+  width: 100%;
+  padding: $default-padding-width 0;
+}
+
+.playerContainer {
+  @extend %flex-centered;
+  @extend %flex-grow-only;
+  flex-direction: column;
+}
+
+.middleContainer {
+  @extend %flex-centered;
+  @extend %background-image-centered;
+  flex: 1 1 auto;
+  width: 100%;
+  box-sizing: border-box;
+  border-left: inset $default-padding-width transparent;
+  border-right: inset $default-padding-width transparent;
+  background-size: contain;
+}
+
+.imageContainer{
+  @extend %flex-centered;
+  @extend %flex-grow-only;
+  @extend %background-image-centered;
+}
+
+.tracksContainer {
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 1 1 auto;
+  overflow-y: scroll;
+  padding: 0;
+}
+
+@media (min-width: 1025px) {
+
+  .tracksContainer {
+    display: flex;
+  }
+
+  .middleContainer {
+    display: none;
+  }  
+}
+
+@media (max-width: 1024px) {
+ 
+  .imageContainer {
+    display: none !important;
+  }
+
+  .tracksContainer {
+    display: none;
+  }
+
+  .middleContainer {
+    display: flex;
+  }
+   
+}

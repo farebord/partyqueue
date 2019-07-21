@@ -1,40 +1,32 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withStyles } from '@material-ui/styles';
-import Hidden from '@material-ui/core/Hidden';
-import Grid from '@material-ui/core/Grid';
-import { fetchCurrentPlayback, fetchAccessInfo } from '../actions';
+
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
+import ImageIcon from '@material-ui/icons/Image';
+
 import SearchInput from '../components/SearchInput';
 import PlayerControls from '../components/PlayerControls';
-import SearchResults from '../components/SearchResults';
 
+import { fetchCurrentPlayback, fetchAccessInfo } from '../actions';
 
-const styles = {
-  containerGrid: {
-    height: '100vh',
-    padding: '10px',
-  },
-  searchBar: {
-    flexGrow: '0',
-  },
-  playerControl: {
-    flexGrow: '0',
-  },
-  containerGridWithImage: {
-    height: '100vh',
-  },
-  imageContainer: {
-    padding: 0,
-    margin: 0,
-  },
-  albumImage: {
-    objectFit: 'contain',
-  },
+import './App.scss';
+
+const artistMock = {
+  name: 'Next track',
+  artists: 'Artist1, Artist2',
 };
 
+const listMock = new Array(10).fill(artistMock);
+
+const nextTracksMock = listMock.map((item, index) => ({ id: index, ...item }));
+
 export const App = ({
-  classes, getAccessInfo, getPlayingInfo, imageCover,
+  getAccessInfo, getPlayingInfo, imageCover,
 }) => {
   const refreshCurrentPlayback = () => {
     getPlayingInfo();
@@ -44,67 +36,41 @@ export const App = ({
     setInterval(refreshCurrentPlayback, 1000);
   }, []);
   return (
-    <React.Fragment>
-      <Hidden lgUp>
-        <Grid
-          container
-          direction="column"
-          className={classes.containerGrid}
-        >
-          <Grid item xs className={classes.searchBar}>
-            <SearchInput />
-          </Grid>
-          <Grid item xs>
-            <SearchResults />
-          </Grid>
-          <Grid item xs className={classes.playerControl}>
-            <PlayerControls />
-          </Grid>
-        </Grid>
-      </Hidden>
-      <Hidden mdDown>
-        <Grid
-          container
-          direction="row"
-          className={classes.containerGridWithImage}
-        >
-          <Grid
-            xs
-            item
-            container
-            direction="column"
-            className={classes.containerGrid}
-          >
-            <Grid item xs className={classes.searchBar}>
-              <SearchInput />
-            </Grid>
-            <Grid item xs>
-              <SearchResults />
-            </Grid>
-            <Grid item xs className={classes.playerControl}>
-              <PlayerControls />
-            </Grid>
-          </Grid>
-          <Grid
-            xs
-            item
-            container
-            className={classes.imageContainer}
-            alignItems="center"
-            justify="center"
-          >
-            <img alt="" src={imageCover} className={classes.albumImage} />
-          </Grid>
-        </Grid>
-      </Hidden>
-    </React.Fragment>
+    <div className="wrapper">
+      <div className="playerContainer">
+        <div className="searchContainer">
+          <SearchInput />
+        </div>
+        <div className="middleContainer" style={{ backgroundImage: `url(${imageCover})` }} />
+        <div className="tracksContainer">
+          <List className="nextTracks">
+            {nextTracksMock.map((item => (
+              <ListItem key={item.id}>
+                <ListItemAvatar>
+                  <Avatar>
+                    <ImageIcon />
+                  </Avatar>
+                </ListItemAvatar>
+                <ListItemText primary={item.name} secondary={item.artists} />
+              </ListItem>
+            )))}
+          </List>
+        </div>
+        <div className="controlContainer">
+          <PlayerControls />
+        </div>
+      </div>
+      <div className="imageContainer" style={{ backgroundImage: `url(${imageCover})` }} />
+    </div>
   );
 };
 
 App.propTypes = {
-  classes: PropTypes.object.isRequired,
+  /* Function that fetches public access token for using Spotify API */
   getAccessInfo: PropTypes.func,
+  /* Function that fetched current playback information  */
   getPlayingInfo: PropTypes.func,
+  /* Album cover of the song that is currently being listen */
   imageCover: PropTypes.string,
 };
 
@@ -124,4 +90,4 @@ export const mapDispatchToProps = dispatch => ({
   getPlayingInfo: () => dispatch(fetchCurrentPlayback()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(App));
+export default connect(mapStateToProps, mapDispatchToProps)(App);

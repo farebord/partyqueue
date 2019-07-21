@@ -2,6 +2,10 @@
   "name": "partyqueue",
   "version": "1.0.0",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/farebord/partyqueue"
+  },
   "scripts": {
     "start": "razzle start",
     "build": "razzle build",
@@ -19,6 +23,7 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "express": "^4.15.2",
+    "identity-obj-proxy": "^3.0.0",
     "openurl": "^1.1.1",
     "prop-types": "^15.6.0",
     "qs": "^6.4.0",
@@ -39,6 +44,7 @@
     "eslint-plugin-react": "^7.14.2",
     "jest": "^24.8.0",
     "razzle": "3.0.0",
+    "razzle-plugin-scss": "3.0.0",
     "redux-mock-store": "^1.5.3"
   },
   "author": "Facundo Rebord",
@@ -51,6 +57,9 @@
     ],
     "modulePaths": [
       "<rootDir>/src/"
-    ]
+    ],
+    "moduleNameMapper": {
+      "^.+\\.(css|less|scss)$": "identity-obj-proxy"
+    }
   }
 }
