@@ -8,6 +8,14 @@ The idea is, when you go to a party, you open this app in your phone. After this
 
 Future: Also you will have the possibility to like or dislike songs on the queue. If there is enough dislikes the song will be removed from the song queue and wont be played.
 
+## Concepts
+This section is just for clarification of changes.
+- There was an implementantion of a responsive image album when the device is lower than 1024px. There was a rule for doing that:
+    - If device width is lower than 319px, the album image displayed will be the one served by Spotify with medium size, with responsive width.
+    - If device width is in between 319px and 650px, the album image displayed will be the big one, with responsive width.
+    - If device width is greater 650, then it will render the big album image with fixed size.
+The point of doing that if to show different types of rendering. When you need to save bandwidth, you could use the smaller one with responsive width, or maybe if you are on device with minimal width just displayed the smaller album image to increase loading speed.
+
 ## To do
 - Websockets implementation. (Right now it's using API requests for fetching current playback information)
 - Autocomplete search bar that shows a list of music to add to the queue (playlist).
