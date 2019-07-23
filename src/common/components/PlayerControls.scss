@@ -20,13 +20,37 @@
   flex: 1 0 auto;
 }
 
+.songName {
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.songArtists {
+  font-size: 0.75rem;
+  color: #e2e2e2;
+}
+
 .loadingProgress {
   margin: 0.5rem;
   color: white;
 };
 
+.playButton {
+  color: green !important;
+  border: 2px solid green !important;
+  background-color: transparent !important;
+}
+
+.pauseButton {
+  color: #c2c2c2 !important;
+  border: 2px solid dimgray !important;
+  background-color: transparent  !important;
+}
+
 .songProgress {
   @extend %flex-centered;
   flex: 0 0 auto;
   padding-right: 1rem;
+  font-size: 0.85rem;
+  color: #fff;
 };

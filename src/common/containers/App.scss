@@ -16,6 +16,10 @@ $default-padding-width: 0.625rem;
   background-repeat: no-repeat;
 }
 
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
 .wrapper {
   display: flex;
   height: 100vh;
@@ -28,6 +32,16 @@ $default-padding-width: 0.625rem;
   flex-direction: row;
   width: 100%;
   padding: $default-padding-width 0;
+}
+
+.searchContainer {
+  background-color: #424242;
+  border-bottom: 2px solid #686868;
+}
+
+.controlContainer {
+  border-top: 2px solid #686868;
+  background-color: #424242;
 }
 
 .playerContainer {
@@ -45,20 +59,54 @@ $default-padding-width: 0.625rem;
   border-left: inset $default-padding-width transparent;
   border-right: inset $default-padding-width transparent;
   background-size: contain;
+  background-color: #2a2a2a;
 }
 
 .imageContainer{
   @extend %flex-centered;
   @extend %flex-grow-only;
   @extend %background-image-centered;
+  background-color: #2a2a2a;
 }
 
 .tracksContainer {
   justify-content: flex-start;
   align-items: flex-start;
   flex: 1 1 auto;
-  overflow-y: scroll;
+  overflow-y: auto;
   padding: 0;
+  background-color: #2a2a2a;
+}
+
+.nextTracks {
+  width: 100%;
+}
+
+.trackItem {
+  border-bottom: 1px solid #424242;
+}
+
+.trackItem .MuiListItemText-primary{
+  color: #c2c2c2;
+  font-weight: 600;
+}
+
+.trackItem .MuiListItemText-secondary {
+  color: #a0a0a0;
+  font-size: 0.75rem;
+}
+
+@media (min-width: 1350) {
+  .albumRightBig {
+    display: block;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1350px) {
+  .albumRightBig {
+    display: block;
+    width: 95%;
+  }
 }
 
 @media (min-width: 1025px) {
@@ -86,4 +134,61 @@ $default-padding-width: 0.625rem;
     display: flex;
   }
    
+}
+
+@media (max-width: 319px) {
+  .circularBig {
+    display: none !important;
+  }
+
+  .circularMedium {
+    display: block !important;
+  }
+
+  .albumBig {
+    display: none;
+  }
+
+  .albumMedium {
+    display: block;
+    width: 95%;
+  }
+}
+
+@media (min-width: 319px) and (max-width: 650px) {
+  .albumBig {
+    display: block;
+    width: 95%;
+  }
+
+  .circularBig {
+    display: block !important;
+  }
+
+  .circularMedium {
+    display: none !important;
+  }
+
+  .albumMedium {
+    display: none;
+  }
+}
+
+@media (min-width: 651px) {
+  .albumBig {
+    display: block;
+  }
+
+  .circularBig {
+    display: block !important;
+  }
+
+  .circularMedium {
+    display: none !important;
+  }
+
+  .albumMedium {
+    display: none;
+  }
+
 }

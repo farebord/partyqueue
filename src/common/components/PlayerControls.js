@@ -37,7 +37,7 @@ export const PlayerControls = ({
     {songInfo && (
       <div className="playerControl">
         <div className="controls">
-          <Fab size="small" color="secondary" aria-label="Add" onClick={pauseResumePlayer}>
+          <Fab size="small" color="secondary" aria-label="Add" className={(isPlaying ? 'pauseButton' : 'playButton')} onClick={pauseResumePlayer}>
             {renderButtonIcon(loading, isPlaying)}
           </Fab>
         </div>

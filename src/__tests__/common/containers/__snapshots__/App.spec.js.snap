@@ -7,7 +7,8 @@ ShallowWrapper {
     classes={Object {}}
     getAccessInfo={[Function]}
     getPlayingInfo={[Function]}
-    imageCover=""
+    imageCoverBig=""
+    imageCoverMedium=""
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -34,19 +35,29 @@ ShallowWrapper {
           </div>
           <div
             className="middleContainer"
-            style={
-              Object {
-                "backgroundImage": "url()",
-              }
-            }
-          />
+          >
+            <LoadingImage
+              alt="Album"
+              className="albumBig"
+              classNameCircular="circularBig"
+              source=""
+            />
+            <LoadingImage
+              alt="Album"
+              className="albumMedium"
+              classNameCircular="circularMedium"
+              source=""
+            />
+          </div>
           <div
             className="tracksContainer"
           >
             <ForwardRef(WithStyles)
               className="nextTracks"
             >
-              <ForwardRef(WithStyles)>
+              <ForwardRef(WithStyles)
+                className="trackItem"
+              >
                 <ForwardRef(WithStyles)>
                   <ForwardRef(WithStyles)>
                     <UNDEFINED />
@@ -57,7 +68,9 @@ ShallowWrapper {
                   secondary="Artist1, Artist2"
                 />
               </ForwardRef(WithStyles)>
-              <ForwardRef(WithStyles)>
+              <ForwardRef(WithStyles)
+                className="trackItem"
+              >
                 <ForwardRef(WithStyles)>
                   <ForwardRef(WithStyles)>
                     <UNDEFINED />
@@ -68,7 +81,9 @@ ShallowWrapper {
                   secondary="Artist1, Artist2"
                 />
               </ForwardRef(WithStyles)>
-              <ForwardRef(WithStyles)>
+              <ForwardRef(WithStyles)
+                className="trackItem"
+              >
                 <ForwardRef(WithStyles)>
                   <ForwardRef(WithStyles)>
                     <UNDEFINED />
@@ -79,7 +94,9 @@ ShallowWrapper {
                   secondary="Artist1, Artist2"
                 />
               </ForwardRef(WithStyles)>
-              <ForwardRef(WithStyles)>
+              <ForwardRef(WithStyles)
+                className="trackItem"
+              >
                 <ForwardRef(WithStyles)>
                   <ForwardRef(WithStyles)>
                     <UNDEFINED />
@@ -90,7 +107,9 @@ ShallowWrapper {
                   secondary="Artist1, Artist2"
                 />
               </ForwardRef(WithStyles)>
-              <ForwardRef(WithStyles)>
+              <ForwardRef(WithStyles)
+                className="trackItem"
+              >
                 <ForwardRef(WithStyles)>
                   <ForwardRef(WithStyles)>
                     <UNDEFINED />
@@ -101,7 +120,9 @@ ShallowWrapper {
                   secondary="Artist1, Artist2"
                 />
               </ForwardRef(WithStyles)>
-              <ForwardRef(WithStyles)>
+              <ForwardRef(WithStyles)
+                className="trackItem"
+              >
                 <ForwardRef(WithStyles)>
                   <ForwardRef(WithStyles)>
                     <UNDEFINED />
@@ -112,7 +133,9 @@ ShallowWrapper {
                   secondary="Artist1, Artist2"
                 />
               </ForwardRef(WithStyles)>
-              <ForwardRef(WithStyles)>
+              <ForwardRef(WithStyles)
+                className="trackItem"
+              >
                 <ForwardRef(WithStyles)>
                   <ForwardRef(WithStyles)>
                     <UNDEFINED />
@@ -123,7 +146,9 @@ ShallowWrapper {
                   secondary="Artist1, Artist2"
                 />
               </ForwardRef(WithStyles)>
-              <ForwardRef(WithStyles)>
+              <ForwardRef(WithStyles)
+                className="trackItem"
+              >
                 <ForwardRef(WithStyles)>
                   <ForwardRef(WithStyles)>
                     <UNDEFINED />
@@ -134,7 +159,9 @@ ShallowWrapper {
                   secondary="Artist1, Artist2"
                 />
               </ForwardRef(WithStyles)>
-              <ForwardRef(WithStyles)>
+              <ForwardRef(WithStyles)
+                className="trackItem"
+              >
                 <ForwardRef(WithStyles)>
                   <ForwardRef(WithStyles)>
                     <UNDEFINED />
@@ -145,7 +172,9 @@ ShallowWrapper {
                   secondary="Artist1, Artist2"
                 />
               </ForwardRef(WithStyles)>
-              <ForwardRef(WithStyles)>
+              <ForwardRef(WithStyles)
+                className="trackItem"
+              >
                 <ForwardRef(WithStyles)>
                   <ForwardRef(WithStyles)>
                     <UNDEFINED />
@@ -166,12 +195,14 @@ ShallowWrapper {
         </div>,
         <div
           className="imageContainer"
-          style={
-            Object {
-              "backgroundImage": "url()",
-            }
-          }
-        />,
+        >
+          <LoadingImage
+            alt="Album"
+            className="albumRightBig"
+            classNameCircular=""
+            source=""
+          />
+        </div>,
       ],
       "className": "wrapper",
     },
@@ -190,19 +221,29 @@ ShallowWrapper {
             </div>,
             <div
               className="middleContainer"
-              style={
-                Object {
-                  "backgroundImage": "url()",
-                }
-              }
-            />,
+            >
+              <LoadingImage
+                alt="Album"
+                className="albumBig"
+                classNameCircular="circularBig"
+                source=""
+              />
+              <LoadingImage
+                alt="Album"
+                className="albumMedium"
+                classNameCircular="circularMedium"
+                source=""
+              />
+            </div>,
             <div
               className="tracksContainer"
             >
               <ForwardRef(WithStyles)
                 className="nextTracks"
               >
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -213,7 +254,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -224,7 +267,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -235,7 +280,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -246,7 +293,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -257,7 +306,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -268,7 +319,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -279,7 +332,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -290,7 +345,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -301,7 +358,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -349,13 +408,53 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "children": Array [
+                <LoadingImage
+                  alt="Album"
+                  className="albumBig"
+                  classNameCircular="circularBig"
+                  source=""
+                />,
+                <LoadingImage
+                  alt="Album"
+                  className="albumMedium"
+                  classNameCircular="circularMedium"
+                  source=""
+                />,
+              ],
               "className": "middleContainer",
-              "style": Object {
-                "backgroundImage": "url()",
-              },
             },
             "ref": null,
-            "rendered": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "alt": "Album",
+                  "className": "albumBig",
+                  "classNameCircular": "circularBig",
+                  "source": "",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "alt": "Album",
+                  "className": "albumMedium",
+                  "classNameCircular": "circularMedium",
+                  "source": "",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+            ],
             "type": "div",
           },
           Object {
@@ -366,7 +465,9 @@ ShallowWrapper {
               "children": <ForwardRef(WithStyles)
                 className="nextTracks"
               >
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -377,7 +478,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -388,7 +491,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -399,7 +504,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -410,7 +517,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -421,7 +530,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -432,7 +543,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -443,7 +556,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -454,7 +569,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -465,7 +582,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -486,7 +605,9 @@ ShallowWrapper {
               "nodeType": "function",
               "props": Object {
                 "children": Array [
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -497,7 +618,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>,
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -508,7 +631,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>,
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -519,7 +644,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>,
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -530,7 +657,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>,
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -541,7 +670,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>,
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -552,7 +683,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>,
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -563,7 +696,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>,
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -574,7 +709,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>,
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -585,7 +722,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>,
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -617,6 +756,7 @@ ShallowWrapper {
                         secondary="Artist1, Artist2"
                       />,
                     ],
+                    "className": "trackItem",
                   },
                   "ref": null,
                   "rendered": Array [
@@ -1852,6 +1992,7 @@ ShallowWrapper {
                         secondary="Artist1, Artist2"
                       />,
                     ],
+                    "className": "trackItem",
                   },
                   "ref": null,
                   "rendered": Array [
@@ -3087,6 +3228,7 @@ ShallowWrapper {
                         secondary="Artist1, Artist2"
                       />,
                     ],
+                    "className": "trackItem",
                   },
                   "ref": null,
                   "rendered": Array [
@@ -4322,6 +4464,7 @@ ShallowWrapper {
                         secondary="Artist1, Artist2"
                       />,
                     ],
+                    "className": "trackItem",
                   },
                   "ref": null,
                   "rendered": Array [
@@ -5557,6 +5700,7 @@ ShallowWrapper {
                         secondary="Artist1, Artist2"
                       />,
                     ],
+                    "className": "trackItem",
                   },
                   "ref": null,
                   "rendered": Array [
@@ -6792,6 +6936,7 @@ ShallowWrapper {
                         secondary="Artist1, Artist2"
                       />,
                     ],
+                    "className": "trackItem",
                   },
                   "ref": null,
                   "rendered": Array [
@@ -8027,6 +8172,7 @@ ShallowWrapper {
                         secondary="Artist1, Artist2"
                       />,
                     ],
+                    "className": "trackItem",
                   },
                   "ref": null,
                   "rendered": Array [
@@ -9262,6 +9408,7 @@ ShallowWrapper {
                         secondary="Artist1, Artist2"
                       />,
                     ],
+                    "className": "trackItem",
                   },
                   "ref": null,
                   "rendered": Array [
@@ -10497,6 +10644,7 @@ ShallowWrapper {
                         secondary="Artist1, Artist2"
                       />,
                     ],
+                    "className": "trackItem",
                   },
                   "ref": null,
                   "rendered": Array [
@@ -11732,6 +11880,7 @@ ShallowWrapper {
                         secondary="Artist1, Artist2"
                       />,
                     ],
+                    "className": "trackItem",
                   },
                   "ref": null,
                   "rendered": Array [
@@ -13272,13 +13421,29 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "children": <LoadingImage
+            alt="Album"
+            className="albumRightBig"
+            classNameCircular=""
+            source=""
+          />,
           "className": "imageContainer",
-          "style": Object {
-            "backgroundImage": "url()",
-          },
         },
         "ref": null,
-        "rendered": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "alt": "Album",
+            "className": "albumRightBig",
+            "classNameCircular": "",
+            "source": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
         "type": "div",
       },
     ],
@@ -13301,19 +13466,29 @@ ShallowWrapper {
             </div>
             <div
               className="middleContainer"
-              style={
-                Object {
-                  "backgroundImage": "url()",
-                }
-              }
-            />
+            >
+              <LoadingImage
+                alt="Album"
+                className="albumBig"
+                classNameCircular="circularBig"
+                source=""
+              />
+              <LoadingImage
+                alt="Album"
+                className="albumMedium"
+                classNameCircular="circularMedium"
+                source=""
+              />
+            </div>
             <div
               className="tracksContainer"
             >
               <ForwardRef(WithStyles)
                 className="nextTracks"
               >
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -13324,7 +13499,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -13335,7 +13512,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -13346,7 +13525,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -13357,7 +13538,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -13368,7 +13551,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -13379,7 +13564,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -13390,7 +13577,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -13401,7 +13590,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -13412,7 +13603,9 @@ ShallowWrapper {
                     secondary="Artist1, Artist2"
                   />
                 </ForwardRef(WithStyles)>
-                <ForwardRef(WithStyles)>
+                <ForwardRef(WithStyles)
+                  className="trackItem"
+                >
                   <ForwardRef(WithStyles)>
                     <ForwardRef(WithStyles)>
                       <UNDEFINED />
@@ -13433,12 +13626,14 @@ ShallowWrapper {
           </div>,
           <div
             className="imageContainer"
-            style={
-              Object {
-                "backgroundImage": "url()",
-              }
-            }
-          />,
+          >
+            <LoadingImage
+              alt="Album"
+              className="albumRightBig"
+              classNameCircular=""
+              source=""
+            />
+          </div>,
         ],
         "className": "wrapper",
       },
@@ -13457,19 +13652,29 @@ ShallowWrapper {
               </div>,
               <div
                 className="middleContainer"
-                style={
-                  Object {
-                    "backgroundImage": "url()",
-                  }
-                }
-              />,
+              >
+                <LoadingImage
+                  alt="Album"
+                  className="albumBig"
+                  classNameCircular="circularBig"
+                  source=""
+                />
+                <LoadingImage
+                  alt="Album"
+                  className="albumMedium"
+                  classNameCircular="circularMedium"
+                  source=""
+                />
+              </div>,
               <div
                 className="tracksContainer"
               >
                 <ForwardRef(WithStyles)
                   className="nextTracks"
                 >
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13480,7 +13685,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13491,7 +13698,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13502,7 +13711,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13513,7 +13724,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13524,7 +13737,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13535,7 +13750,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13546,7 +13763,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13557,7 +13776,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13568,7 +13789,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13616,13 +13839,53 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
+                "children": Array [
+                  <LoadingImage
+                    alt="Album"
+                    className="albumBig"
+                    classNameCircular="circularBig"
+                    source=""
+                  />,
+                  <LoadingImage
+                    alt="Album"
+                    className="albumMedium"
+                    classNameCircular="circularMedium"
+                    source=""
+                  />,
+                ],
                 "className": "middleContainer",
-                "style": Object {
-                  "backgroundImage": "url()",
-                },
               },
               "ref": null,
-              "rendered": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "alt": "Album",
+                    "className": "albumBig",
+                    "classNameCircular": "circularBig",
+                    "source": "",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "alt": "Album",
+                    "className": "albumMedium",
+                    "classNameCircular": "circularMedium",
+                    "source": "",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
               "type": "div",
             },
             Object {
@@ -13633,7 +13896,9 @@ ShallowWrapper {
                 "children": <ForwardRef(WithStyles)
                   className="nextTracks"
                 >
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13644,7 +13909,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13655,7 +13922,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13666,7 +13935,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13677,7 +13948,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13688,7 +13961,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13699,7 +13974,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13710,7 +13987,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13721,7 +14000,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13732,7 +14013,9 @@ ShallowWrapper {
                       secondary="Artist1, Artist2"
                     />
                   </ForwardRef(WithStyles)>
-                  <ForwardRef(WithStyles)>
+                  <ForwardRef(WithStyles)
+                    className="trackItem"
+                  >
                     <ForwardRef(WithStyles)>
                       <ForwardRef(WithStyles)>
                         <UNDEFINED />
@@ -13753,7 +14036,9 @@ ShallowWrapper {
                 "nodeType": "function",
                 "props": Object {
                   "children": Array [
-                    <ForwardRef(WithStyles)>
+                    <ForwardRef(WithStyles)
+                      className="trackItem"
+                    >
                       <ForwardRef(WithStyles)>
                         <ForwardRef(WithStyles)>
                           <UNDEFINED />
@@ -13764,7 +14049,9 @@ ShallowWrapper {
                         secondary="Artist1, Artist2"
                       />
                     </ForwardRef(WithStyles)>,
-                    <ForwardRef(WithStyles)>
+                    <ForwardRef(WithStyles)
+                      className="trackItem"
+                    >
                       <ForwardRef(WithStyles)>
                         <ForwardRef(WithStyles)>
                           <UNDEFINED />
@@ -13775,7 +14062,9 @@ ShallowWrapper {
                         secondary="Artist1, Artist2"
                       />
                     </ForwardRef(WithStyles)>,
-                    <ForwardRef(WithStyles)>
+                    <ForwardRef(WithStyles)
+                      className="trackItem"
+                    >
                       <ForwardRef(WithStyles)>
                         <ForwardRef(WithStyles)>
                           <UNDEFINED />
@@ -13786,7 +14075,9 @@ ShallowWrapper {
                         secondary="Artist1, Artist2"
                       />
                     </ForwardRef(WithStyles)>,
-                    <ForwardRef(WithStyles)>
+                    <ForwardRef(WithStyles)
+                      className="trackItem"
+                    >
                       <ForwardRef(WithStyles)>
                         <ForwardRef(WithStyles)>
                           <UNDEFINED />
@@ -13797,7 +14088,9 @@ ShallowWrapper {
                         secondary="Artist1, Artist2"
                       />
                     </ForwardRef(WithStyles)>,
-                    <ForwardRef(WithStyles)>
+                    <ForwardRef(WithStyles)
+                      className="trackItem"
+                    >
                       <ForwardRef(WithStyles)>
                         <ForwardRef(WithStyles)>
                           <UNDEFINED />
@@ -13808,7 +14101,9 @@ ShallowWrapper {
                         secondary="Artist1, Artist2"
                       />
                     </ForwardRef(WithStyles)>,
-                    <ForwardRef(WithStyles)>
+                    <ForwardRef(WithStyles)
+                      className="trackItem"
+                    >
                       <ForwardRef(WithStyles)>
                         <ForwardRef(WithStyles)>
                           <UNDEFINED />
@@ -13819,7 +14114,9 @@ ShallowWrapper {
                         secondary="Artist1, Artist2"
                       />
                     </ForwardRef(WithStyles)>,
-                    <ForwardRef(WithStyles)>
+                    <ForwardRef(WithStyles)
+                      className="trackItem"
+                    >
                       <ForwardRef(WithStyles)>
                         <ForwardRef(WithStyles)>
                           <UNDEFINED />
@@ -13830,7 +14127,9 @@ ShallowWrapper {
                         secondary="Artist1, Artist2"
                       />
                     </ForwardRef(WithStyles)>,
-                    <ForwardRef(WithStyles)>
+                    <ForwardRef(WithStyles)
+                      className="trackItem"
+                    >
                       <ForwardRef(WithStyles)>
                         <ForwardRef(WithStyles)>
                           <UNDEFINED />
@@ -13841,7 +14140,9 @@ ShallowWrapper {
                         secondary="Artist1, Artist2"
                       />
                     </ForwardRef(WithStyles)>,
-                    <ForwardRef(WithStyles)>
+                    <ForwardRef(WithStyles)
+                      className="trackItem"
+                    >
                       <ForwardRef(WithStyles)>
                         <ForwardRef(WithStyles)>
                           <UNDEFINED />
@@ -13852,7 +14153,9 @@ ShallowWrapper {
                         secondary="Artist1, Artist2"
                       />
                     </ForwardRef(WithStyles)>,
-                    <ForwardRef(WithStyles)>
+                    <ForwardRef(WithStyles)
+                      className="trackItem"
+                    >
                       <ForwardRef(WithStyles)>
                         <ForwardRef(WithStyles)>
                           <UNDEFINED />
@@ -13884,6 +14187,7 @@ ShallowWrapper {
                           secondary="Artist1, Artist2"
                         />,
                       ],
+                      "className": "trackItem",
                     },
                     "ref": null,
                     "rendered": Array [
@@ -15119,6 +15423,7 @@ ShallowWrapper {
                           secondary="Artist1, Artist2"
                         />,
                       ],
+                      "className": "trackItem",
                     },
                     "ref": null,
                     "rendered": Array [
@@ -16354,6 +16659,7 @@ ShallowWrapper {
                           secondary="Artist1, Artist2"
                         />,
                       ],
+                      "className": "trackItem",
                     },
                     "ref": null,
                     "rendered": Array [
@@ -17589,6 +17895,7 @@ ShallowWrapper {
                           secondary="Artist1, Artist2"
                         />,
                       ],
+                      "className": "trackItem",
                     },
                     "ref": null,
                     "rendered": Array [
@@ -18824,6 +19131,7 @@ ShallowWrapper {
                           secondary="Artist1, Artist2"
                         />,
                       ],
+                      "className": "trackItem",
                     },
                     "ref": null,
                     "rendered": Array [
@@ -20059,6 +20367,7 @@ ShallowWrapper {
                           secondary="Artist1, Artist2"
                         />,
                       ],
+                      "className": "trackItem",
                     },
                     "ref": null,
                     "rendered": Array [
@@ -21294,6 +21603,7 @@ ShallowWrapper {
                           secondary="Artist1, Artist2"
                         />,
                       ],
+                      "className": "trackItem",
                     },
                     "ref": null,
                     "rendered": Array [
@@ -22529,6 +22839,7 @@ ShallowWrapper {
                           secondary="Artist1, Artist2"
                         />,
                       ],
+                      "className": "trackItem",
                     },
                     "ref": null,
                     "rendered": Array [
@@ -23764,6 +24075,7 @@ ShallowWrapper {
                           secondary="Artist1, Artist2"
                         />,
                       ],
+                      "className": "trackItem",
                     },
                     "ref": null,
                     "rendered": Array [
@@ -24999,6 +25311,7 @@ ShallowWrapper {
                           secondary="Artist1, Artist2"
                         />,
                       ],
+                      "className": "trackItem",
                     },
                     "ref": null,
                     "rendered": Array [
@@ -26539,13 +26852,29 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "children": <LoadingImage
+              alt="Album"
+              className="albumRightBig"
+              classNameCircular=""
+              source=""
+            />,
             "className": "imageContainer",
-            "style": Object {
-              "backgroundImage": "url()",
-            },
           },
           "ref": null,
-          "rendered": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "alt": "Album",
+              "className": "albumRightBig",
+              "classNameCircular": "",
+              "source": "",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           "type": "div",
         },
       ],

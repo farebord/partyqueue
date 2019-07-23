@@ -2,12 +2,15 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import ImageLoader from 'react-loading-image';
+
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import ImageIcon from '@material-ui/icons/Image';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import SearchInput from '../components/SearchInput';
 import PlayerControls from '../components/PlayerControls';
@@ -25,8 +28,29 @@ const listMock = new Array(10).fill(artistMock);
 
 const nextTracksMock = listMock.map((item, index) => ({ id: index, ...item }));
 
+const LoadingImage = ({ source, className, alt, classNameCircular }) => (
+  <ImageLoader
+    loading={() => <CircularProgress className={classNameCircular} />}
+    src={source}
+    alt={alt}
+    image={({ src }) => <img src={src} className={className} alt={alt} />}
+  />
+);
+
+LoadingImage.propTypes = {
+  source: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  alt: PropTypes.string.isRequired,
+  classNameCircular: PropTypes.string,
+};
+
+LoadingImage.defaultProps = {
+  className: '',
+  classNameCircular: '',
+};
+
 export const App = ({
-  getAccessInfo, getPlayingInfo, imageCover,
+  getAccessInfo, getPlayingInfo, imageCoverBig, imageCoverMedium,
 }) => {
   const refreshCurrentPlayback = () => {
     getPlayingInfo();
@@ -41,11 +65,14 @@ export const App = ({
         <div className="searchContainer">
           <SearchInput />
         </div>
-        <div className="middleContainer" style={{ backgroundImage: `url(${imageCover})` }} />
+        <div className="middleContainer">
+          <LoadingImage className="albumBig" classNameCircular="circularBig" source={imageCoverBig} alt="Album" />
+          <LoadingImage className="albumMedium" classNameCircular="circularMedium" source={imageCoverMedium} alt="Album" />
+        </div>
         <div className="tracksContainer">
           <List className="nextTracks">
             {nextTracksMock.map((item => (
-              <ListItem key={item.id}>
+              <ListItem className="trackItem" key={item.id}>
                 <ListItemAvatar>
                   <Avatar>
                     <ImageIcon />
@@ -60,7 +87,9 @@ export const App = ({
           <PlayerControls />
         </div>
       </div>
-      <div className="imageContainer" style={{ backgroundImage: `url(${imageCover})` }} />
+      <div className="imageContainer">
+        <LoadingImage className="albumRightBig" source={imageCoverBig} alt="Album" />
+      </div>
     </div>
   );
 };
@@ -70,19 +99,22 @@ App.propTypes = {
   getAccessInfo: PropTypes.func,
   /* Function that fetched current playback information  */
   getPlayingInfo: PropTypes.func,
-  /* Album cover of the song that is currently being listen */
-  imageCover: PropTypes.string,
+  /* Album covers  of the song that is currently being listen */
+  imageCoverBig: PropTypes.string,
+  imageCoverMedium: PropTypes.string,
 };
 
 App.defaultProps = {
   getPlayingInfo: () => {},
   getAccessInfo: () => {},
-  imageCover: '',
+  imageCoverBig: '',
+  imageCoverMedium: '',
 };
 
 
 export const mapStateToProps = ({ player }) => ({
-  imageCover: player.item && player.item.album.images[0].url,
+  imageCoverBig: player.item && player.item.album.images[0].url,
+  imageCoverMedium: player.item && player.item.album.images[1].url,
 });
 
 export const mapDispatchToProps = dispatch => ({
