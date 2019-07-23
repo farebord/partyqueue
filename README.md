@@ -17,6 +17,7 @@ This section is just for clarification of changes.
 The point of doing that if to show different types of rendering. When you need to save bandwidth, you could use the smaller one with responsive width, or maybe if you are on device with minimal width just displayed the smaller album image to increase loading speed.
 
 ## To do
+- Put CSS on the Critical Path. Trying to decipher how Razzle serves css in order to do so. At the moment CSS is being loaded after the web loads.
 - Websockets implementation. (Right now it's using API requests for fetching current playback information)
 - Autocomplete search bar that shows a list of music to add to the queue (playlist).
 - Create a partyqueue playlist and use it as a queue. (Spotify API doesn't have endpoints for adding music to queue, in fact Queue are store locally on each device)
